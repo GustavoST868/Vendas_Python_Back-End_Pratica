@@ -1,4 +1,5 @@
 import sqlite3
-class Database_Endereco:
+class Database_User:
     def __init__(self):
-        pass
+       pass
+

@@ -1,3 +1,3 @@
-class Produto:
+class Address:
     def __init__(self):
         pass

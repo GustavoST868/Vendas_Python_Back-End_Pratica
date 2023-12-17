@@ -1,4 +1,4 @@
 import sqlite3
-class Database_Produtos:
+class Database_Payments:
     def __init__(self):
         pass

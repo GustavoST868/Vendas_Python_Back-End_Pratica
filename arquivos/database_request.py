@@ -1,5 +1,4 @@
 import sqlite3
-class Database_Usuario:
+class Database_Request:
     def __init__(self):
-       pass
-
+        pass

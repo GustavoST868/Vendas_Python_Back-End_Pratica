@@ -1,4 +1,4 @@
 import tkinter as tk
-class Interface_Usuario:
+class Intermediate_Interface:
     def __init__(self):
         pass

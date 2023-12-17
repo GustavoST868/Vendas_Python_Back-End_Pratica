@@ -1,4 +1,4 @@
 import tkinter as tk
-class Interface_Cadastro_Produtos:
+class Product_Registration_Interface:
     def __init__(self):
         pass
