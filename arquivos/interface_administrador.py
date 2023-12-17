@@ -11,7 +11,9 @@ class Interface_Administrador:
     #janela para receber as informacoes
     def Janela(self):
         def botao_Cadastrar():
+            #manda os dados para a classe administrador
             Administrador = administrador.Administrador(self.entry_Nome.get(),self.entry_Senha.get(),self.entry_Email.get(),self.entry_DataNascimento.get(),self.genero_var,self.entry_Telefone.get())
+            #manda os dados para a classe database_administrador
             Database_administradores = database_administradores.Database_Administradores(Administrador.Administrador())
             
 
