@@ -1,3 +1,3 @@
-class Interface_Cadastro_Produto:
+class Interface_Cadastro_Produtos:
     def __init__(self):
         pass
