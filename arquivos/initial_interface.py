@@ -9,12 +9,19 @@ class InitialInterface:
 
     def create_window(self):
         def button_user():
+            self.window.destroy()
             user = interface_user_register.InterfaceUser()
             user.create_window()
+           
+            
+            
 
         def button_administrator():
+            self.window.destroy()
             administrators = interface_administrator_register.InterfaceAdministrator()
             administrators.Window()
+           
+            
 
         self.window.title("Interface Inicial")
         self.window.configure(background="old lace")
