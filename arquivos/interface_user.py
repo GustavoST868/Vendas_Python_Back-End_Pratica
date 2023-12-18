@@ -27,44 +27,48 @@ class InterfaceUser:
             
          # Basic configurations
         self.window.title("Usuário")
-        self.window.configure(background="gray90")
+        self.window.configure(background="old lace")
         self.window.geometry("230x260")
 
         # Get name
         self.label_name = tk.Label(self.window, text="Name:")
-        self.label_name.configure(background="gray90")
+        self.label_name.configure(background="old lace")
         self.label_name.grid(row=0, column=0, padx=5, pady=5)
 
         self.entry_name = tk.Entry(self.window)
+        self.entry_name.configure(background="antique white")
         self.entry_name.grid(row=0, column=1, padx=5, pady=5)
 
         # Get password
         self.label_password = tk.Label(self.window, text="Password:")
-        self.label_password.configure(background="gray90")
+        self.label_password.configure(background="old lace")
         self.label_password.grid(row=1, column=0, padx=5, pady=5)
 
         self.entry_password = tk.Entry(self.window, show="*")
+        self.entry_password.configure(background="antique white")
         self.entry_password.grid(row=1, column=1, padx=5, pady=5)
 
         # Get email
         self.label_email = tk.Label(self.window, text="E-mail:")
-        self.label_email.configure(background="gray90")
+        self.label_email.configure(background="old lace")
         self.label_email.grid(row=2, column=0, padx=5, pady=5)
 
         self.entry_email = tk.Entry(self.window)
+        self.entry_email.configure(background="antique white")
         self.entry_email.grid(row=2, column=1, padx=5, pady=5)
 
         # Get birth date
         self.label_birth_date = tk.Label(self.window, text="Birth Date:")
-        self.label_birth_date.configure(background="gray90")
+        self.label_birth_date.configure(background="old lace")
         self.label_birth_date.grid(row=3, column=0, padx=5, pady=5)
 
         self.entry_birth_date = tk.Entry(self.window)
+        self.entry_birth_date.configure(background="antique white")
         self.entry_birth_date.grid(row=3, column=1, padx=5, pady=5)
 
         # Get gender
         self.label_gender = tk.Label(self.window, text="Gender:")
-        self.label_gender.configure(background="gray90")
+        self.label_gender.configure(background="old lace")
         self.label_gender.grid(row=4, column=0, padx=5, pady=5)
 
         self.gender_var = tk.StringVar()
@@ -77,15 +81,16 @@ class InterfaceUser:
 
          # Get phone
         self.label_phone = tk.Label(self.window, text="Phone:")
-        self.label_phone.configure(background="gray90")
+        self.label_phone.configure(background="old lace")
         self.label_phone.grid(row=6, column=0, padx=5, pady=5)
 
         self.entry_phone = tk.Entry(self.window)
+        self.entry_Phone.configure(background="antique white")
         self.entry_phone.grid(row=6, column=1, padx=5, pady=5)
 
         # Buttons "Enter" and "Register"
         self.button_register = tk.Button(self.window, text="Register", command=button_register)
-        self.button_register.configure(background="lime green")
+        self.button_register.configure(background="powder blue")
         self.button_register.grid(row=7, column=1, padx=5, pady=5)
 
         self.window.mainloop()
