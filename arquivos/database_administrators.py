@@ -7,7 +7,6 @@ class DatabaseAdministrators:
         self.assign_data()
         self.connect_database()
         self.create_table()
-        
 
     # Method for assigning data attributes
     def assign_data(self):
@@ -61,8 +60,20 @@ class DatabaseAdministrators:
     # Method for fetching data from the administrators table
     def get_data(self, administrator_name):
         self.cursor.execute('SELECT * FROM administrators WHERE name = ?', (administrator_name,))
-        return self.cursor.fetchone()
+        data = self.cursor.fetchone()
 
+        if data:
+            table_format = f'''
+            +----+------------+--------------+--------------------+------------+--------+-------------+
+            | ID |    Name    |   Password   |       Email        | Birth Date | Gender |    Phone    |
+            +----+------------+--------------+--------------------+------------+--------+-------------+
+            | {data[0]:<2} | {data[1]:<10} | {data[2]:<13} | {data[3]:<18} | {data[4]:<10} | {data[5]:<6} | {data[6]:<11} |
+            +----+------------+--------------+--------------------+------------+--------+-------------+
+            '''
+            return table_format
+        else:
+            return "Administrator not found."
+        
     # Method for deleting data from the administrators table
     def delete_data(self, administrator_name):
         self.cursor.execute('DELETE FROM administrators WHERE name = ?', (administrator_name,))

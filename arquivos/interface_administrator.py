@@ -1,6 +1,6 @@
 import tkinter as tk
-import administrators
-import database_administrators
+from administrators import Administrator
+from database_administrators import DatabaseAdministrators
 
 # Class for the interface to get administrator data
 class InterfaceAdministrator:
@@ -12,22 +12,23 @@ class InterfaceAdministrator:
         # Function for the "Register" button click
         def button_Register():
             # Send data to the Administrator class
+            name = self.entry_Name.get()
+            password = self.entry_Password.get()
+            email = self.entry_Email.get()
+            birth_date = self.entry_BirthDate.get()
+            gender = self.gender_var.get()
+            phone = self.entry_Phone.get()
+
+            # Send data to the DatabaseAdministrator class
+            administrator = Administrator(name, password, email, birth_date, gender, phone)
+            database_administrators = DatabaseAdministrators(administrator.get_administrator())
+            database_administrators.insert_data()
             
-                name = self.entry_Name.get()
-                password = self.entry_Password.get()
-                email = self.entry_Email.get()
-                birth_data = self.entry_BirthDate.get()
-                gender = self.gender_var.get()
-                phone = self.entry_Phone.get()
-        
-                # Send data to the DatabaseAdministrator class
-                administrator = administrators.Administrator(name,password,email,birth_data,gender,phone)
-                Database_administrators = database_administrators.DatabaseAdministrators(administrator.get_administrator())
-               
-        #basic configurations
+
+        # Basic configurations
         self.window.title("Administrator")
         self.window.configure(background="gray90")
-        self.window.geometry("290x260")
+        self.window.geometry("230x260")
 
         # Get name
         self.label_Name = tk.Label(self.window, text="Name:")

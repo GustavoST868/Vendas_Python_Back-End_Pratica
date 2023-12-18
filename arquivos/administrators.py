@@ -7,7 +7,6 @@ class Administrator:
         self.birth_date = birth_date
         self.gender = gender
         self.phone = phone
-        
 
     # Returns the administrator data
     def get_administrator(self):
@@ -17,6 +16,6 @@ class Administrator:
         email:{self.email}
         birth_date:{self.birth_date}
         gender:{self.gender}
-        phone:{self.phone}        
+        phone:{self.phone}
         '''
-        return administrator_data
+        return administrator_data.strip()
