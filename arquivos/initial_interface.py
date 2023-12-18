@@ -1,17 +1,35 @@
-import interface_administrator,interface_user,tkinter as tk
-class Initial_Interface:
+import interface_administrator_register 
+import interface_user_register 
+import tkinter as tk
+
+class InitialInterface:
     def __init__(self):
         self.window = tk.Tk()
+        self.create_window()
 
-    def Window(self):
-        self.window.geometry("200x200")
+    def create_window(self):
+        def button_user():
+            user = interface_user_register.InterfaceUser()
+            user.create_window()
 
-        self.button_user = tk.Button(self.window,text="Usuário")
-        self.button_user.grid(row=0,column=0,padx=5,pady=5)
+        def button_administrator():
+            administrators = interface_administrator_register.InterfaceAdministrator()
+            administrators.Window()
 
+        self.window.title("Interface Inicial")
+        self.window.configure(background="old lace")
 
-        self.button_administrator = tk.Button(self.window,text="Administrador")
-        self.button_administrator.grid(row=1,column=0,padx=5,pady=5)
+        self.label = tk.Label(self.window,text="Selecione o tipo do usuário:")
+        self.label.configure(background="old lace")
+        self.label.grid(row=0,column=0,padx=5,pady=5)
+        
 
+        self.button_user = tk.Button(self.window, text="Usuário", command=button_user)
+        self.button_user.configure(background="powder blue")
+        self.button_user.grid(row=1, column=0, padx=5, pady=5)
+
+        self.button_administrator = tk.Button(self.window, text="Administrador", command=button_administrator)
+        self.button_administrator.configure(background="powder blue")
+        self.button_administrator.grid(row=1, column=1, padx=5, pady=5)
 
         self.window.mainloop()
