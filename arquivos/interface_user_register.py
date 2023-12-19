@@ -1,5 +1,5 @@
 import tkinter as tk
-from user import User
+from arquivos.user import User
 from database_user import DatabaseUser
 
 class InterfaceUser:
