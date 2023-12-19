@@ -9,17 +9,17 @@ class InterfaceAdministrator:
 
     def create_window(self):
         def button_register():
-            administrator = Administrator(
-                self.entry_name.get(),
-                self.entry_password.get(),
-                self.entry_email.get(),
-                self.entry_birth_date.get(),
-                self.gender_var.get(),
-                self.entry_phone.get()
-            )
-            database_administrators = DatabaseAdministrators()
-            database_administrators.assign_data(administrator.get_administrator())
-            database_administrators.insert_data()
+            name = self.entry_name.get()
+            password = self.entry_password.get()
+            email = self.entry_email.get()
+            birth_date = self.entry_birth_date.get()
+            gender = self.gender_var.get()
+            phone = self.entry_phone.get()
+
+            administrator = Administrator(name, password, email, birth_date, gender, phone)
+            db_user = DatabaseAdministrators(administrator.get_administrator())
+            db_user.assign_data(administrator.get_administrator())
+            db_user.insert_data()
 
         def button_enter():
             self.window.destroy()
@@ -92,9 +92,17 @@ class InterfaceAdministrator:
 
         self.window.mainloop()
 
-
     def Window_Enter(self):
-        
+        def button_enter():
+            name = self.name_entry.get()
+            password = self.password_entry.get()
+            user = Administrator(name, password, "", "", "", "")  
+            db_administrator = DatabaseAdministrators(user.get_administrator())
+            if db_administrator.administrator_exists(name):
+                print("Usuario existe")
+            else:
+                print("Usuario não existe")
+
         self.window = tk.Tk()
         self.window.configure(background="old lace")
         self.window.title("User Login")
@@ -115,7 +123,7 @@ class InterfaceAdministrator:
         self.password_entry.configure(background="antique white")
         self.password_entry.grid(row=1, column=1, padx=5, pady=5)
 
-        self.button_enter = tk.Button(self.window, text="Entrar", )
+        self.button_enter = tk.Button(self.window, text="Entrar", command=button_enter)
         self.button_enter.configure(background="powder blue")
         self.button_enter.grid(row=2, column=0, padx=5, pady=5)
 

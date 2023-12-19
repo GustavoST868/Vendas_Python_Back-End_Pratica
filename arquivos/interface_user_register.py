@@ -1,5 +1,5 @@
 import tkinter as tk
-from arquivos.user import User
+from user import User
 from database_user import DatabaseUser
 
 class InterfaceUser:
@@ -17,7 +17,7 @@ class InterfaceUser:
             phone = self.entry_phone.get()
 
             user_ = User(name, password, email, birth_date, gender, phone)
-            db_user = DatabaseUser()
+            db_user = DatabaseUser(user_.get_user())
             db_user.assign_data(user_.get_user())
             db_user.insert_data()
 
@@ -93,6 +93,16 @@ class InterfaceUser:
         self.window.mainloop()
 
     def Window_Enter(self):
+        def button_enter():
+            name = self.name_entry.get()
+            password = self.password_entry.get()
+            user_ = User(name, password, "", "", "", "")  
+            db_user = DatabaseUser(user_.get_user())
+            if db_user.user_exists(name):
+                print("Usuario existe")
+            else:
+                print("Usuario não existe")
+
         self.window = tk.Tk()
         self.window.configure(background="old lace")
         self.window.title("User Login")
@@ -113,7 +123,7 @@ class InterfaceUser:
         self.password_entry.configure(background="antique white")
         self.password_entry.grid(row=1, column=1, padx=5, pady=5)
 
-        self.button_enter = tk.Button(self.window, text="Entrar", )
+        self.button_enter = tk.Button(self.window, text="Entrar", command=button_enter)
         self.button_enter.configure(background="powder blue")
         self.button_enter.grid(row=2, column=0, padx=5, pady=5)
 
