@@ -1,6 +1,7 @@
 import tkinter as tk
 from administrators import Administrator
 from database_administrators import DatabaseAdministrators
+
 class InterfaceAdministrator:
     def __init__(self):
         self.window = tk.Tk()
@@ -8,20 +9,24 @@ class InterfaceAdministrator:
 
     def create_window(self):
         def button_register():
-            name = self.entry_name.get()
-            password = self.entry_password.get()
-            email = self.entry_email.get()
-            birth_date = self.entry_birth_date.get()
-            gender = self.gender_var.get()
-            phone = self.entry_phone.get()
-
-            administrator = Administrator(name, password, email, birth_date, gender, phone)
-            database_administrators = DatabaseAdministrators(administrator.get_administrator())
+            administrator = Administrator(
+                self.entry_name.get(),
+                self.entry_password.get(),
+                self.entry_email.get(),
+                self.entry_birth_date.get(),
+                self.gender_var.get(),
+                self.entry_phone.get()
+            )
+            database_administrators = DatabaseAdministrators()
+            database_administrators.assign_data(administrator.get_administrator())
             database_administrators.insert_data()
+
+        def button_enter():
+            self.window.destroy()
+            self.Window_Enter()
 
         self.window.title("Administrator")
         self.window.configure(background="old lace")
-        
 
         self.label_name = tk.Label(self.window, text="Nome:")
         self.label_name.configure(background="old lace")
@@ -62,9 +67,11 @@ class InterfaceAdministrator:
         self.gender_var = tk.StringVar()
 
         self.radio_male = tk.Radiobutton(self.window, text="Masculino", variable=self.gender_var, value="Masculino")
+        self.radio_male.configure(background="old lace")
         self.radio_male.grid(row=5, column=0, padx=5, pady=5, sticky=tk.W)
 
         self.radio_female = tk.Radiobutton(self.window, text="Feminino", variable=self.gender_var, value="Feminino")
+        self.radio_female.configure(background="old lace")
         self.radio_female.grid(row=5, column=1, padx=5, pady=5, sticky=tk.E)
 
         self.label_phone = tk.Label(self.window, text="Telefone:")
@@ -79,8 +86,37 @@ class InterfaceAdministrator:
         self.button_register.configure(background="powder blue")
         self.button_register.grid(row=7, column=0, padx=5, pady=5)
 
-        self.button_enter = tk.Button(self.window, text="Entrar")
+        self.button_enter = tk.Button(self.window, text="Entrar", command=button_enter)
         self.button_enter.configure(background="powder blue")
         self.button_enter.grid(row=7, column=1, padx=5, pady=5)
+
+        self.window.mainloop()
+
+
+    def Window_Enter(self):
+        
+        self.window = tk.Tk()
+        self.window.configure(background="old lace")
+        self.window.title("User Login")
+
+        self.name_label = tk.Label(self.window, text="Nome:")
+        self.name_label.configure(background="old lace")
+        self.name_label.grid(row=0, column=0, padx=5, pady=5)
+
+        self.name_entry = tk.Entry(self.window)
+        self.name_entry.configure(background="antique white")
+        self.name_entry.grid(row=0, column=1, padx=5, pady=5)
+
+        self.password_label = tk.Label(self.window, text="Senha:")
+        self.password_label.configure(background="old lace")
+        self.password_label.grid(row=1, column=0, padx=5, pady=5)
+
+        self.password_entry = tk.Entry(self.window)
+        self.password_entry.configure(background="antique white")
+        self.password_entry.grid(row=1, column=1, padx=5, pady=5)
+
+        self.button_enter = tk.Button(self.window, text="Entrar", )
+        self.button_enter.configure(background="powder blue")
+        self.button_enter.grid(row=2, column=0, padx=5, pady=5)
 
         self.window.mainloop()

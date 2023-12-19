@@ -1,7 +1,6 @@
 import tkinter as tk
 from user import User
 from database_user import DatabaseUser
-from user_enter import User_Enter
 
 class InterfaceUser:
     def __init__(self):
@@ -24,8 +23,7 @@ class InterfaceUser:
 
         def enter_button_clicked():
             self.window.destroy()
-            enter = User_Enter()
-            enter.Window()
+            self.Window_Enter()
 
         self.window.title("Usuário")
         self.window.configure(background="old lace")
@@ -69,9 +67,11 @@ class InterfaceUser:
         self.gender_var = tk.StringVar()
 
         self.radio_male = tk.Radiobutton(self.window, text="Masculino", variable=self.gender_var, value="Masculino")
+        self.radio_male.configure(background="old lace")
         self.radio_male.grid(row=5, column=0, padx=5, pady=5, sticky=tk.W)
 
         self.radio_female = tk.Radiobutton(self.window, text="Feminino", variable=self.gender_var, value="Feminino")
+        self.radio_female.configure(background="old lace")
         self.radio_female.grid(row=5, column=1, padx=5, pady=5, sticky=tk.E)
 
         self.label_phone = tk.Label(self.window, text="Telefone:")
@@ -89,5 +89,32 @@ class InterfaceUser:
         self.button_enter = tk.Button(self.window, text="Entrar", command=enter_button_clicked)
         self.button_enter.configure(background="powder blue")
         self.button_enter.grid(row=7, column=1, padx=5, pady=5)
+
+        self.window.mainloop()
+
+    def Window_Enter(self):
+        self.window = tk.Tk()
+        self.window.configure(background="old lace")
+        self.window.title("User Login")
+
+        self.name_label = tk.Label(self.window, text="Nome:")
+        self.name_label.configure(background="old lace")
+        self.name_label.grid(row=0, column=0, padx=5, pady=5)
+
+        self.name_entry = tk.Entry(self.window)
+        self.name_entry.configure(background="antique white")
+        self.name_entry.grid(row=0, column=1, padx=5, pady=5)
+
+        self.password_label = tk.Label(self.window, text="Senha:")
+        self.password_label.configure(background="old lace")
+        self.password_label.grid(row=1, column=0, padx=5, pady=5)
+
+        self.password_entry = tk.Entry(self.window)
+        self.password_entry.configure(background="antique white")
+        self.password_entry.grid(row=1, column=1, padx=5, pady=5)
+
+        self.button_enter = tk.Button(self.window, text="Entrar", )
+        self.button_enter.configure(background="powder blue")
+        self.button_enter.grid(row=2, column=0, padx=5, pady=5)
 
         self.window.mainloop()

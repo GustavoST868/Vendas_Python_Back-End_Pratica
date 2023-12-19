@@ -14,16 +14,14 @@ class InitialInterface:
             user.create_window()
            
             
-            
-
+    
         def button_administrator():
             self.window.destroy()
             administrators = interface_administrator_register.InterfaceAdministrator()
             administrators.Window()
            
-            
-
-        self.window.title("Interface Inicial")
+        
+        self.window.title("Tipo de Usuário")
         self.window.configure(background="old lace")
 
         self.label = tk.Label(self.window,text="Selecione o tipo do usuário:")
