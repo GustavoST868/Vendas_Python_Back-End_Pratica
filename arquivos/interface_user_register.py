@@ -1,7 +1,7 @@
 import tkinter as tk
-import user
-import database_user
-import user_enter
+from user import User
+from database_user import DatabaseUser
+from user_enter import User_Enter
 
 class InterfaceUser:
     def __init__(self):
@@ -9,8 +9,7 @@ class InterfaceUser:
         self.create_window()
 
     def create_window(self):
-        def button_register():
-            self.window.destroy()
+        def register_button_clicked():
             name = self.entry_name.get()
             password = self.entry_password.get()
             email = self.entry_email.get()
@@ -18,21 +17,18 @@ class InterfaceUser:
             gender = self.gender_var.get()
             phone = self.entry_phone.get()
 
-            user_ = user.User(name, password, email, birth_date, gender, phone)
-            db_user = database_user.DatabaseUser(user_.get_user())
+            user_ = User(name, password, email, birth_date, gender, phone)
+            db_user = DatabaseUser()
+            db_user.assign_data(user_.get_user())
             db_user.insert_data()
-            
 
-
-        def button_enter():
+        def enter_button_clicked():
             self.window.destroy()
-            enter = user_enter.User_Enter()
+            enter = User_Enter()
             enter.Window()
-            
 
         self.window.title("Usuário")
         self.window.configure(background="old lace")
-        
 
         self.label_name = tk.Label(self.window, text="Nome:")
         self.label_name.configure(background="old lace")
@@ -86,11 +82,11 @@ class InterfaceUser:
         self.entry_phone.configure(background="antique white")
         self.entry_phone.grid(row=6, column=1, padx=5, pady=5)
 
-        self.button_register = tk.Button(self.window, text="Registrar", command=button_register)
+        self.button_register = tk.Button(self.window, text="Registrar", command=register_button_clicked)
         self.button_register.configure(background="powder blue")
         self.button_register.grid(row=7, column=0, padx=5, pady=5)
 
-        self.button_enter = tk.Button(self.window, text="Entrar",command=button_enter)
+        self.button_enter = tk.Button(self.window, text="Entrar", command=enter_button_clicked)
         self.button_enter.configure(background="powder blue")
         self.button_enter.grid(row=7, column=1, padx=5, pady=5)
 
