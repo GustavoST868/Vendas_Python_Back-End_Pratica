@@ -5,7 +5,7 @@ import tkinter as tk
 class Intermediate_Interface:
     def __init__(self):
         self.window = tk.Tk()
-        self.img_path = "C:/Users/Gustavo/Downloads/POO_Vendas/arquivos/camisa.png"
+        self.img_path = r"C:/Users/Gustavo/Downloads/POO_Vendas/arquivos/camisa.png"
         self.imagens = []  
 
     def on_image_click(self, index):
@@ -18,17 +18,14 @@ class Intermediate_Interface:
 
         try:
             i1 = 0
-            
             x1 = 20
             y1 = 20
             x2 = 20
             y2 = 150
             x3 = 20
             y3 = 280
-
             x4 = 20
             y4 = 410
-
 
             while i1 < 4:
                 imagem = tk.PhotoImage(file=self.img_path)
@@ -72,5 +69,4 @@ class Intermediate_Interface:
         self.window.mainloop()
 
 
-janela = Intermediate_Interface()
-janela.Window()
+

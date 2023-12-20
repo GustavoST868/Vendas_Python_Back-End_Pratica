@@ -1,6 +1,7 @@
 import tkinter as tk
 from administrators import Administrator
 from database_administrators import DatabaseAdministrators
+import intermediate_Interface
 
 class InterfaceAdministrator:
     def __init__(self):
@@ -99,7 +100,9 @@ class InterfaceAdministrator:
             user = Administrator(name, password, "", "", "", "")  
             db_administrator = DatabaseAdministrators(user.get_administrator())
             if db_administrator.administrator_exists(name):
-                print("Usuario existe")
+                self.window.destroy()
+                window = intermediate_Interface.Intermediate_Interface()
+                window.Window()
             else:
                 print("Usuario não existe")
 

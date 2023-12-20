@@ -1,6 +1,7 @@
 import tkinter as tk
 from user import User
 from database_user import DatabaseUser
+import intermediate_Interface
 
 class InterfaceUser:
     def __init__(self):
@@ -95,11 +96,13 @@ class InterfaceUser:
     def Window_Enter(self):
         def button_enter():
             name = self.name_entry.get()
-            password = self.password_entry.get()
+            password = self.passsword_entry.get()
             user_ = User(name, password, "", "", "", "")  
             db_user = DatabaseUser(user_.get_user())
             if db_user.user_exists(name):
-                print("Usuario existe")
+                self.window.destroy()
+                window = intermediate_Interface.Intermediate_Interface()
+                window.Window()
             else:
                 print("Usuario não existe")
 
