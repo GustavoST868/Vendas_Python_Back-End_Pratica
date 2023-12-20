@@ -96,7 +96,7 @@ class InterfaceUser:
     def Window_Enter(self):
         def button_enter():
             name = self.name_entry.get()
-            password = self.passsword_entry.get()
+            password = self.password_entry.get()
             user_ = User(name, password, "", "", "", "")  
             db_user = DatabaseUser(user_.get_user())
             if db_user.user_exists(name):
