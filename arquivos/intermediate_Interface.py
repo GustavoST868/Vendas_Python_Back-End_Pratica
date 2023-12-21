@@ -5,7 +5,7 @@ import tkinter as tk
 class Intermediate_Interface:
     def __init__(self):
         self.window = tk.Tk()
-        self.img_path = r"C:/Users/Gustavo/Downloads/POO_Vendas/arquivos/camisa.png"
+        self.img_path = r"C:/Users/Gustavo/Downloads/POO_Vendas/arquivos/shirt.png"
         self.imagens = []  
 
     def on_image_click(self, index):
