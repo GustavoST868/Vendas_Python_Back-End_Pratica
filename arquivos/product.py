@@ -1,5 +1,3 @@
-# product.py
-
 class Product:
     def __init__(self, name, description, price, size):
         self.name = name
