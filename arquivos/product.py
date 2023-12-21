@@ -1,21 +1,17 @@
+# product.py
+
 class Product:
-    def __init__(self,id,name,description,price,size):
-        self.id = id
+    def __init__(self, name, description, price, size):
         self.name = name
         self.description = description
         self.price = price
         self.size = size
 
-    def Product_Function(self):
-        product  = f''' 
-        id:{self.id}
-        name:{self.name}
-        description:{self.description}
-        price:{self.price}
-        size:{self.size}
+    def get_product(self):
+        product_info = f''' 
+        name: {self.name}
+        description: {self.description}
+        price: {self.price}
+        size: {self.size}
         '''
-        return product
-
-
-
-
+        return product_info
