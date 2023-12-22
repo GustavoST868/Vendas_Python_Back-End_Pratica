@@ -1,2 +1,2 @@
 # POO_Vendas
-#Estrutura para simular um ambiente de vendas de produtos com Orientação a  Objetos e modelagem de vendas.
+Estrutura para simular um ambiente de vendas de produtos com Orientação a  Objetos e modelagem de vendas.
