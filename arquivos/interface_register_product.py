@@ -48,7 +48,4 @@ class InterfaceProduct:
 
         self.window.mainloop()
 
-# Create an instance of the InterfaceProduct class
-j = InterfaceProduct()
-# Call the run_interface method to start the Tkinter main loop
-j.run_interface()
+
