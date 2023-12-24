@@ -11,8 +11,7 @@ class InterfaceUser:
 
     def create_window(self):
         def register_button_clicked():
-            address = Interface_Address()
-            address.Window()
+
             name = self.entry_name.get()
             password = self.entry_password.get()
             email = self.entry_email.get()

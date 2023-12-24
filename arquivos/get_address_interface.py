@@ -5,7 +5,11 @@ class Interface_Address:
         self.window = tk.Tk()
 
     def Window(self):
-        self.window.title("Endeço")
+        def button_next():
+            self.window.destroy()
+
+
+        self.window.title("Endereço")
 
         self.label_city = tk.Label(self.window, text="Cidade:")
         self.label_city.grid(row=0, column=0, padx=5, pady=5)
@@ -46,7 +50,7 @@ class Interface_Address:
         self.button_register = tk.Button(self.window, text="Registrar")
         self.button_register.grid(row=6, column=0, padx=5, pady=5)
 
-        self.button_next = tk.Button(self.window, text="Próximo")
+        self.button_next = tk.Button(self.window, text="Próximo",command=button_next)
         self.button_next.grid(row=6, column=1, padx=5, pady=5)
 
         self.window.mainloop()
