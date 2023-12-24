@@ -2,6 +2,7 @@ import tkinter as tk
 from user import User
 from database_user import DatabaseUser
 import intermediate_Interface
+from get_address_interface import Interface_Address
 
 class InterfaceUser:
     def __init__(self):
@@ -10,6 +11,8 @@ class InterfaceUser:
 
     def create_window(self):
         def register_button_clicked():
+            address = Interface_Address()
+            address.Window()
             name = self.entry_name.get()
             password = self.entry_password.get()
             email = self.entry_email.get()
@@ -97,7 +100,7 @@ class InterfaceUser:
         def button_enter():
             name = self.name_entry.get()
             password = self.password_entry.get()
-            user_ = User(name, password, "", "", "", "")  
+            user_ = User(name, password, "", "", "", "")
             db_user = DatabaseUser(user_.get_user())
             if db_user.user_exists(name):
                 self.window.destroy()

@@ -3,6 +3,7 @@ from administrators import Administrator
 from database_administrators import DatabaseAdministrators
 import intermediate_Interface
 import interface_register_product
+from get_address_interface import Interface_Address
 
 class InterfaceAdministrator:
     def __init__(self):
@@ -11,6 +12,8 @@ class InterfaceAdministrator:
 
     def create_window(self):
         def button_register():
+            address = Interface_Address()
+            address.Window()
             name = self.entry_name.get()
             password = self.entry_password.get()
             email = self.entry_email.get()
@@ -20,12 +23,16 @@ class InterfaceAdministrator:
 
             administrator = Administrator(name, password, email, birth_date, gender, phone)
             db_user = DatabaseAdministrators(administrator.get_administrator())
-            db_user.assign_data(administrator.get_administrator())
-            db_user.insert_data()
+
+            try:
+                db_user.assign_data(administrator.get_administrator())
+                db_user.insert_data()
+            except Exception as e:
+                print(f"Error registering user: {e}")
 
         def button_enter():
             self.window.destroy()
-            self.Window_Enter()
+            self.window_enter()
 
         self.window.title("Administrator")
         self.window.configure(background="old lace")
@@ -94,22 +101,24 @@ class InterfaceAdministrator:
 
         self.window.mainloop()
 
-    def Window_Enter(self):
+    def window_enter(self):
         def button_enter():
             name = self.name_entry.get()
             password = self.password_entry.get()
-            user = Administrator(name, password, "", "", "", "")  
-            db_administrator = DatabaseAdministrators(user.get_administrator())
-            if db_administrator.administrator_exists(name):
-                
-                self.window.destroy()
-                product  = interface_register_product.InterfaceProduct()
-                product.run_interface()
-                window = intermediate_Interface.Intermediate_Interface()
-                window.Window()
-                
-            else:
-                print("Usuario não existe")
+            user_ = Administrator(name, password, "", "", "", "")
+            db_administrator = DatabaseAdministrators(user_.get_administrator())
+
+            try:
+                if db_administrator.administrator_exists(name):
+                    self.window.destroy()
+                    product = interface_register_product.InterfaceProduct()
+                    product.run_interface()
+                    window = intermediate_Interface.Intermediate_Interface()
+                    window.window()
+                else:
+                    print("Usuario não existe")
+            except Exception as e:
+                print(f"Error logging in: {e}")
 
         self.window = tk.Tk()
         self.window.configure(background="old lace")
