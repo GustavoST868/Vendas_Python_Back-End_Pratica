@@ -1,8 +1,8 @@
 import tkinter as tk
 from user import User
 from database_user import DatabaseUser
-import intermediate_Interface
-from get_address_interface import Interface_Address
+
+
 
 class InterfaceUser:
     def __init__(self):
@@ -103,8 +103,7 @@ class InterfaceUser:
             db_user = DatabaseUser(user_.get_user())
             if db_user.user_exists(name):
                 self.window.destroy()
-                window = intermediate_Interface.Intermediate_Interface()
-                window.Window()
+                
             else:
                 print("Usuario não existe")
 

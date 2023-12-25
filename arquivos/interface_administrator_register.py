@@ -2,8 +2,8 @@ import tkinter as tk
 from administrators import Administrator
 from database_administrators import DatabaseAdministrators
 import intermediate_Interface
-import interface_register_product
-from get_address_interface import Interface_Address
+
+
 
 class InterfaceAdministrator:
     def __init__(self):
@@ -109,8 +109,6 @@ class InterfaceAdministrator:
             try:
                 if db_administrator.administrator_exists(name):
                     self.window.destroy()
-                    product = interface_register_product.InterfaceProduct()
-                    product.run_interface()
                     window = intermediate_Interface.Intermediate_Interface()
                     window.window()
                 else:
