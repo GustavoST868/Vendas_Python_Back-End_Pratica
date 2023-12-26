@@ -38,6 +38,8 @@ class RegisterInterface:
         self.entry_email.configure(background="#F2B0FC")
         self.entry_email.grid(row=1, column=1, padx=10, pady=10)
 
+        
+
         self.button_back = tk.Button(self.window, text="Voltar", command=button_back, relief='flat')
         self.button_back.configure(background="#DA30F5")
         self.button_back.grid(row=3, column=0, padx=10, pady=10)
