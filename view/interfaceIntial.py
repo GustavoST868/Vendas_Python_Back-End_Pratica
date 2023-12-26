@@ -1,5 +1,6 @@
 import tkinter as tk
 import registerInterface
+import enterInterface
 
 class IntialInterface:
     def __init__(self):
@@ -11,6 +12,11 @@ class IntialInterface:
             interface_register = registerInterface.RegisterInterface()
             interface_register.Window()
 
+        def button_enter():
+            self.window.destroy()
+            enter_interface = enterInterface.EnterInterface()
+            enter_interface.Window()
+
         self.window.title("")
         self.window.configure(background="#FF9EF6")
 
@@ -18,7 +24,7 @@ class IntialInterface:
         self.label.configure(background="#FF9EF6")
         self.label.place(x=150, y=100)
 
-        self.button_enter = tk.Button(self.window, text="Entrar", relief='flat')
+        self.button_enter = tk.Button(self.window, text="Entrar", relief='flat',command=button_enter)
         self.button_enter.configure(background="#FA76ED", width=15, height=5)
         self.button_enter.place(x=50, y=300)
 
