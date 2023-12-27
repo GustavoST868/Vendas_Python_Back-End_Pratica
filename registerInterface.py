@@ -10,6 +10,7 @@ class RegisterInterface:
     def Window(self):
         def button_back():
             self.window.destroy()
+
             interface_initial = interfaceIntial.IntialInterface()
             interface_initial.Window()
 
