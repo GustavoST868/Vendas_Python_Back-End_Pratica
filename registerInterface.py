@@ -2,6 +2,7 @@ import tkinter as tk
 import interfaceIntial
 import getAddressInterface
 
+
 class RegisterInterface:
     def __init__(self):
         self.window = tk.Tk()
@@ -13,7 +14,14 @@ class RegisterInterface:
             interface_initial.Window()
 
         def button_next():
+            name = self.entry_name.get()
+            password = self.entry_password.get()
+            email = self.entry_email.get()
+
             self.window.destroy()
+
+            
+
             get_address = getAddressInterface.GetAddress()
             get_address.Window()
 
