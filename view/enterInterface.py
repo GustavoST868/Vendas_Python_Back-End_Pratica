@@ -1,10 +1,17 @@
 import tkinter as tk
+import interfaceIntial
 
 class EnterInterface:
     def __init__(self):
         self.window = tk.Tk()
 
     def Window(self):
+
+        def button_back():
+            self.window.destroy()
+            initial_interface = interfaceIntial.IntialInterface()
+            initial_interface.Window()
+            
 
         self.window.configure(background="#FF9EF6")
 
@@ -24,7 +31,7 @@ class EnterInterface:
         self.entry_password.configure(background="#F2B0FC")
         self.entry_password.grid(row=1, column=1, padx=10, pady=10)
 
-        self.button_back = tk.Button(self.window, text="Volta")
+        self.button_back = tk.Button(self.window, text="Volta",command=button_back)
         self.button_back.configure(background="#FA76ED")
         self.button_back.grid(row=2, column=0, padx=10, pady=10)
 
