@@ -43,6 +43,14 @@ class Address:
             if address_data:
                 return Address(*address_data)
             return None
+        
+    @staticmethod
+    def is_address_in_database(country, state, city, street, number):
+        with sqlite3.connect("addresses.db") as connection:
+            cursor = connection.cursor()
+            cursor.execute("SELECT * FROM addresses WHERE country=? AND state=? AND city=? AND street=? AND number=?",
+                           (country, state, city, street, number))
+            return cursor.fetchone() is not None
 
     def getCountry(self):
         return self.country
