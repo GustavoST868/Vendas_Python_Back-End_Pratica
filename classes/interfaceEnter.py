@@ -10,13 +10,13 @@ class EnterInterface:
         def button_back():
             self.window.destroy()
             initial_interface = interfaceIntial.IntialInterface()
-            initial_interface.create_window()
+            initial_interface.Window()
 
         def button_next():
             username = entry_user.get()
             password = entry_password.get()
             user_instance = user.User(username, password)
-            print(user_instance.user_exists(username))
+            print(user_instance.user_exists(username,password))
             
         self.window.configure(background="#C7BEBE")
 
