@@ -1,6 +1,6 @@
 import tkinter as tk
-import registerInterface
-import enterInterface
+import registerInterface 
+import enterInterface 
 
 class IntialInterface:
     def __init__(self):

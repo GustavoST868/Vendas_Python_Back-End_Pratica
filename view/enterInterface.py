@@ -1,5 +1,5 @@
 import tkinter as tk
-import interfaceIntial
+import interfaceIntial 
 
 class EnterInterface:
     def __init__(self):

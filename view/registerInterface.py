@@ -1,6 +1,7 @@
 import tkinter as tk
-import interfaceIntial
-import getAddressInterface
+import interfaceIntial 
+import getAddressInterface 
+
 
 
 class RegisterInterface:
