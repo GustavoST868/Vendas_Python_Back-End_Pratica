@@ -6,17 +6,7 @@ class GetAddress:
         self.window = tk.Tk()
 
     def Window(self):
-        def button_next():
-            get_address = address.Address(
-                self.entry_country.get(),
-                self.entry_state.get(),
-                self.entry_city.get(),
-                self.entry_street.get(),
-                self.entry_number.get(),
-                self.entry_cep.get(),
-                self.entry_complement.get()
-                )
-                
+        def button_next():  
             self.window.destroy()
             
 
