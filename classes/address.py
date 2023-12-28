@@ -2,7 +2,7 @@ import sqlite3
 
 class Address:
     def __init__(self):
-        self.connection = sqlite3.connect('nome_do_banco.db')
+        self.connection = sqlite3.connect('addresses.db')
         self.cursor = self.connection.cursor()
         self.cursor.execute('''
             CREATE TABLE IF NOT EXISTS addresses (
@@ -17,7 +17,7 @@ class Address:
         ''')
         self.connection.commit()
 
-    def insert_address(self, country, state, city, street, number, complement=None):
+    def insert_address(self, country, state, city, street, number, complement):
         self.cursor.execute('''
             INSERT INTO addresses (country, state, city, street, number, complement)
             VALUES (?, ?, ?, ?, ?, ?)

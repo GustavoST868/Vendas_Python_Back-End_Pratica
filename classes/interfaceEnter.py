@@ -15,8 +15,13 @@ class EnterInterface:
         def button_next():
             username = entry_user.get()
             password = entry_password.get()
-            user_instance = user.User(username, password)
-            print(user_instance.user_exists(username,password))
+            user_ = user.User()
+            
+            if user_.user_exists(username,password):
+                pass
+            else:
+                pass
+
             
         self.window.configure(background="#C7BEBE")
 

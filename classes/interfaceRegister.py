@@ -18,7 +18,8 @@ class RegisterInterface:
         def button_next():
             name = self.entry_name.get()
             password = self.entry_password.get()
-            email = self.entry_email.get()
+            user_ = user.User()
+            user_.insert_user(name,password,False)
             self.window.destroy()
             get_address = interfaceGetAddress.GetAddress()
             get_address.Window()
@@ -42,21 +43,13 @@ class RegisterInterface:
         self.entry_password.configure(background="#DAD6D6")
         self.entry_password.grid(row=1, column=1, padx=10, pady=10)
 
-        self.label_email = tk.Label(self.window, text="Email")
-        self.label_email.configure(background="#C7BEBE")
-        self.label_email.grid(row=2, column=0, padx=10, pady=10)
-
-        self.entry_email = tk.Entry(self.window)
-        self.entry_email.configure(background="#DAD6D6")
-        self.entry_email.grid(row=2, column=1, padx=10, pady=10)
-
         self.button_back = tk.Button(self.window, text="Voltar", command=button_back, relief='flat')
         self.button_back.configure(background="#A89E9E")
-        self.button_back.grid(row=3, column=0, padx=10, pady=10)
+        self.button_back.grid(row=2, column=0, padx=10, pady=10)
 
         self.button_next = tk.Button(self.window, text="Próximo", relief='flat', command=button_next)
         self.button_next.configure(background="#A89E9E")
-        self.button_next.grid(row=3, column=1, padx=10, pady=10)
+        self.button_next.grid(row=2, column=1, padx=10, pady=10)
 
         self.window.mainloop()
 
