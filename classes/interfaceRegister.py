@@ -20,7 +20,13 @@ class RegisterInterface:
             password = self.entry_password.get()
             email = self.entry_email.get()
 
-            user_ = user.User(name,password,email,False)
+            user_ = user.User(
+                name,
+                password,
+                email,
+                False
+                )
+            
             print(user_.to_string())
 
             self.window.destroy()
