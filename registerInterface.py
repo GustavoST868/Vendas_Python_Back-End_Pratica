@@ -3,7 +3,6 @@ import interfaceIntial
 import getAddressInterface 
 
 
-
 class RegisterInterface:
     def __init__(self):
         self.window = tk.Tk()
