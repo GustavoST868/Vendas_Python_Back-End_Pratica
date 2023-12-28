@@ -1,6 +1,7 @@
 import tkinter as tk
 import interfaceIntial 
 import getAddressInterface 
+import user
 
 
 class RegisterInterface:
@@ -18,6 +19,9 @@ class RegisterInterface:
             name = self.entry_name.get()
             password = self.entry_password.get()
             email = self.entry_email.get()
+
+            user_ = user.User(name,password,email,False)
+            print(user_.to_string())
 
             self.window.destroy()
 
