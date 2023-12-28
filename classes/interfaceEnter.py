@@ -1,5 +1,6 @@
 import tkinter as tk
 import interfaceIntial 
+import user
 
 class EnterInterface:
     def __init__(self):
@@ -12,7 +13,6 @@ class EnterInterface:
             initial_interface = interfaceIntial.IntialInterface()
             initial_interface.Window()
             
-
         self.window.configure(background="#C7BEBE")
 
         self.label_user = tk.Label(self.window, text="Usuário")
