@@ -1,6 +1,6 @@
 import tkinter as tk
 import interfaceIntial 
-import getAddressInterface 
+import interfaceGetAddress 
 import user
 
 
@@ -27,7 +27,7 @@ class RegisterInterface:
 
             
 
-            get_address = getAddressInterface.GetAddress()
+            get_address = interfaceGetAddress.GetAddress()
             get_address.Window()
 
         self.window.configure(background="#FF9EF6")

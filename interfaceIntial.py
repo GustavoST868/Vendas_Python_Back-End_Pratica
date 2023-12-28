@@ -1,5 +1,5 @@
 import tkinter as tk
-import registerInterface 
+import interfaceRegister 
 import enterInterface 
 
 class IntialInterface:
@@ -9,7 +9,7 @@ class IntialInterface:
     def Window(self):
         def button_register():
             self.window.destroy()
-            interface_register = registerInterface.RegisterInterface()
+            interface_register = interfaceRegister.RegisterInterface()
             interface_register.Window()
 
         def button_enter():
