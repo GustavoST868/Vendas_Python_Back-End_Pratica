@@ -16,6 +16,7 @@ class GetAddress:
                 self.entry_cep.get(),
                 self.entry_complement.get()
                 )
+            self.window.destroy()
             
 
         self.window.configure(background="#FF9EF6")
