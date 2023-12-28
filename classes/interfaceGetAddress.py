@@ -1,10 +1,22 @@
 import tkinter as tk
+import address
 
 class GetAddress:
     def __init__(self):
         self.window = tk.Tk()
 
     def Window(self):
+        def button_next():
+            get_address = address.Address(
+                self.entry_country.get(),
+                self.entry_state.get(),
+                self.entry_city.get(),
+                self.entry_street.get(),
+                self.entry_number.get(),
+                self.entry_cep.get(),
+                self.entry_complement.get()
+                )
+            
 
         self.window.configure(background="#FF9EF6")
 
@@ -64,7 +76,7 @@ class GetAddress:
         self.entry_complement.configure(background="#F2B0FC")
         self.entry_complement.grid(row=6, column=1, padx=10, pady=10)
 
-        self.button_next = tk.Button(self.window, text="Próximo")
+        self.button_next = tk.Button(self.window, text="Próximo",command=button_next)
         self.button_next.configure(background="#FA76ED")
         self.button_next.grid(row=7, column=0, columnspan=2, padx=10, pady=10)
 
