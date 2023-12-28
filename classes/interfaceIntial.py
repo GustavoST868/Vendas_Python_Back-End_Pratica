@@ -1,6 +1,6 @@
 import tkinter as tk
 import interfaceRegister 
-import enterInterface 
+import interfaceEnter 
 
 class IntialInterface:
     def __init__(self):
@@ -14,7 +14,7 @@ class IntialInterface:
 
         def button_enter():
             self.window.destroy()
-            enter_interface = enterInterface.EnterInterface()
+            enter_interface = interfaceEnter.EnterInterface()
             enter_interface.Window()
 
         self.window.title("")

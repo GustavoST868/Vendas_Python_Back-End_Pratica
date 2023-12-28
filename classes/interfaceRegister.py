@@ -1,7 +1,7 @@
 import tkinter as tk
-import interfaceIntial 
-import interfaceGetAddress 
-import user
+import interfaceIntial as interfaceIntial 
+import interfaceGetAddress as interfaceGetAddress 
+import user 
 
 
 class RegisterInterface:
