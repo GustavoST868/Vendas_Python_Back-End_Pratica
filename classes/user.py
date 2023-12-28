@@ -1,7 +1,7 @@
 import sqlite3
 
 class User:
-    def __init__(self, name, password, email, is_administrator):
+    def __init__(self, name="", password="", email="", is_administrator=False):
         self.name = name
         self.password = password
         self.email = email
@@ -20,6 +20,7 @@ class User:
         return self.password
     
     def set_password(self, password):
+        # Implement secure password hashing here
         self.password = password
         self.insert_user()
 
