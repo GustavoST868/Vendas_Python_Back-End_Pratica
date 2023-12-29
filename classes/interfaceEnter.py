@@ -1,5 +1,6 @@
 import tkinter as tk
 import interfaceIntial
+import intefaceProduct
 import user
 
 class EnterInterface:
@@ -18,7 +19,9 @@ class EnterInterface:
             user_ = user.User()
             
             if user_.user_exists(username,password):
-                pass
+                self.window.destroy()
+                interface_product = intefaceProduct.InterfaceProduct()
+                interface_product.Window()
             else:
                 pass
 
@@ -37,7 +40,7 @@ class EnterInterface:
         label_password.configure(background="#C7BEBE")
         label_password.grid(row=1, column=0, padx=10, pady=10)
 
-        entry_password = tk.Entry(self.window)
+        entry_password = tk.Entry(self.window,show="*")
         entry_password.configure(background="#DAD6D6")
         entry_password.grid(row=1, column=1, padx=10, pady=10)
 

@@ -1,5 +1,6 @@
 import tkinter as tk
 import address
+import intefaceProduct
 
 class GetAddress:
     def __init__(self):
@@ -10,6 +11,9 @@ class GetAddress:
             address_ = address.Address()
             address_.insert_address(self.entry_country.get(),self.entry_state.get(),self.entry_city.get(),self.entry_street.get(),self.entry_number.get(),self.entry_complement.get()) 
             self.window.destroy()
+            interface_product = intefaceProduct.InterfaceProduct()
+            interface_product.Window()
+            
             
 
         self.window.configure(background="#C7BEBE")
