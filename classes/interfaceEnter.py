@@ -1,6 +1,7 @@
 import tkinter as tk
 import interfaceIntial
 import intefaceProduct
+from tkinter import messagebox
 import user
 
 class EnterInterface:
@@ -23,7 +24,8 @@ class EnterInterface:
                 interface_product = intefaceProduct.InterfaceProduct()
                 interface_product.Window()
             else:
-                pass
+                messagebox.showinfo("Info", "Usuário não encontrado!")
+
 
             
         self.window.configure(background="#C7BEBE")

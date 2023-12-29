@@ -22,7 +22,7 @@ class InterfaceProduct:
         image_number = 1
 
         while j < 2:
-            i = 0  # Reset i to 0 for each row
+            i = 0  
             x = 10
 
             while i < 4:
