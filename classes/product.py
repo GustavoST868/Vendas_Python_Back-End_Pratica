@@ -1,4 +1,5 @@
 import sqlite3
+from tkinter import messagebox
 
 class Product:
     def __init__(self):
@@ -16,17 +17,26 @@ class Product:
         self.conn.commit()
         self.insert_product()
 
-    def insert_product(self, name, price, size, description):
-        self.cursor.execute('''
-            INSERT INTO products (name, price, size, description)
-            VALUES (?, ?, ?, ?)
-        ''', (name, price, size, description))
-        self.conn.commit()
+    try:
+        def insert_product(self, name, price, size, description):
+            self.cursor.execute('''
+                INSERT INTO products (name, price, size, description)
+                VALUES (?, ?, ?, ?)
+            ''', (name, price, size, description))
+            self.conn.commit()
+    except ValueError:
+        messagebox("Erro","Erro na função de inserir produtos!")
 
-    def get_all_products(self):
-        self.cursor.execute('SELECT * FROM products')
-        return self.cursor.fetchall()
+    try:
+        def get_all_products(self):
+            self.cursor.execute('SELECT * FROM products')
+            return self.cursor.fetchall()
+    except ValueError:
+        messagebox("Erro","Erro na função de obter os produtos do banco!")
 
-    def check_product_exists(self, name):
-        self.cursor.execute('SELECT * FROM products WHERE name = ?', (name,))
-        return self.cursor.fetchone() is not None
+    try:
+        def check_product_exists(self, name):
+            self.cursor.execute('SELECT * FROM products WHERE name = ?', (name,))
+            return self.cursor.fetchone() is not None
+    except ValueError:
+        messagebox("Erro","Erro na função de verificar se uma produto existe no banco!")

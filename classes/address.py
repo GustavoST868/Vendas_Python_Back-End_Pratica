@@ -1,4 +1,5 @@
 import sqlite3
+from tkinter import messagebox
 
 class Address:
     def __init__(self):
@@ -17,12 +18,19 @@ class Address:
         ''')
         self.connection.commit()
 
-    def insert_address(self, country, state, city, street, number, complement):
-        self.cursor.execute('''
-            INSERT INTO addresses (country, state, city, street, number, complement)
-            VALUES (?, ?, ?, ?, ?, ?)
-        ''', (country, state, city, street, number, complement))
-        self.connection.commit()
+    try:
+        def insert_address(self, country, state, city, street, number, complement):
+            self.cursor.execute('''
+                INSERT INTO addresses (country, state, city, street, number, complement)
+                VALUES (?, ?, ?, ?, ?, ?)
+            ''', (country, state, city, street, number, complement))
+            self.connection.commit()
+    except ValueError:
+        messagebox("Erro","Erro na função de inserir endereço!")
 
-    def close_connection(self):
-        self.connection.close()
+
+    try:
+        def close_connection(self):
+            self.connection.close()
+    except ValueError:
+        messagebox("Erro","Erro na função de fechar a conexão com o banco de endereços!")

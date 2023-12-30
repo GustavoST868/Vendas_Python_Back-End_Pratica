@@ -1,4 +1,5 @@
 import sqlite3
+from tkinter import messagebox
 
 class User:
     def __init__(self):
@@ -14,16 +15,25 @@ class User:
         ''')
         self.connection.commit()
 
-    def insert_user(self, name, password, administrador):
-        self.cursor.execute('''
-            INSERT INTO users (name, password, administrador)
-            VALUES (?, ?, ?)
-        ''', (name, password, administrador))
-        self.connection.commit()
+    try:
+        def insert_user(self, name, password, administrador):
+            self.cursor.execute('''
+                INSERT INTO users (name, password, administrador)
+                VALUES (?, ?, ?)
+            ''', (name, password, administrador))
+            self.connection.commit()
+    except ValueError:
+        messagebox("Erro","Erro na função de inserir usuário!")
 
-    def user_exists(self, name, password):
-        self.cursor.execute('SELECT * FROM users WHERE name = ? AND password = ?', (name, password))
-        return self.cursor.fetchone() is not None
+    try:
+        def user_exists(self, name, password):
+            self.cursor.execute('SELECT * FROM users WHERE name = ? AND password = ?', (name, password))
+            return self.cursor.fetchone() is not None
+    except ValueError:
+        messagebox("Erro","Erro na função de verificar se um usuário existe!")
 
-    def close_connection(self):
-        self.connection.close()
+    try:
+        def close_connection(self):
+            self.connection.close()
+    except ValueError:
+        messagebox("Erro","Erro na função de fechar a conexão com o banco de usuários!")
