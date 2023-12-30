@@ -23,17 +23,17 @@ class User:
             ''', (name, password, administrador))
             self.connection.commit()
     except ValueError:
-        messagebox("Erro","Erro na função de inserir usuário!")
+        messagebox.showinfo("Erro","Erro na função de inserir usuário!")
 
     try:
         def user_exists(self, name, password):
             self.cursor.execute('SELECT * FROM users WHERE name = ? AND password = ?', (name, password))
             return self.cursor.fetchone() is not None
     except ValueError:
-        messagebox("Erro","Erro na função de verificar se um usuário existe!")
+        messagebox.showinfo("Erro","Erro na função de verificar se um usuário existe!")
 
     try:
         def close_connection(self):
             self.connection.close()
     except ValueError:
-        messagebox("Erro","Erro na função de fechar a conexão com o banco de usuários!")
+        messagebox.showinfo("Erro","Erro na função de fechar a conexão com o banco de usuários!")

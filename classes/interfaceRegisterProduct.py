@@ -1,10 +1,30 @@
 import tkinter as tk
+import intefaceProduct
+from tkinter import messagebox
+import product
 class InteraceRegisterProduct:
     def __init__(self):
         self.window = tk.Tk()
 
 
     def Window(self):
+
+        try:
+            def button_back():
+                self.window.destroy()
+                interface_product = intefaceProduct.InterfaceProduct()
+                interface_product.Window()
+        except ValueError:
+            messagebox.showinfo("Erro","Erro  na função do botão voltar!")
+
+        try:
+            def button_register():
+                product_ = product.Product()
+                product_.insert_product(self.entry_name.get(),self.entry_price.get(),self.entry_size.get(),self.entry_description.get())
+                messagebox.showinfo.showinfo("Informação","Produto salvo no banco!")
+        except ValueError:
+            messagebox.showinfo("Erro","Erro  na função do botão voltar!")
+
 
         self.window.configure(background="#C7BEBE")
 
@@ -40,11 +60,11 @@ class InteraceRegisterProduct:
         self.entry_description.configure(background="#DAD6D6")
         self.entry_description.grid(row=3,column=1)
 
-        self.button_back = tk.Button(self.window,text="Voltar")
+        self.button_back = tk.Button(self.window,text="Voltar",command=button_back)
         self.button_back.configure(background="#A89E9E")
         self.button_back.grid(row=4,column=0,padx=5,pady=5)
 
-        self.button_next = tk.Button(self.window,text="Voltar")
+        self.button_next = tk.Button(self.window,text="Registrar",command=button_register)
         self.button_next.configure(background="#A89E9E")
         self.button_next.grid(row=4,column=1,padx=5,pady=5)
 
@@ -52,5 +72,3 @@ class InteraceRegisterProduct:
         self.window.title("")
         self.window.mainloop()
 
-i = InteraceRegisterProduct()
-i.Window()

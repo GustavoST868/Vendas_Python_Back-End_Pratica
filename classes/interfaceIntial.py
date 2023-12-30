@@ -8,6 +8,7 @@ class IntialInterface:
         self.window = tk.Tk()
 
     def Window(self):
+        
         try:
             def button_register():
                 self.window.destroy()
@@ -36,7 +37,7 @@ class IntialInterface:
         self.button_enter.configure(background="#A89E9E", width=15, height=5)
         self.button_enter.place(x=50, y=300)
 
-        self.button_register = tk.Button(self.window, text="Registrar", relief='flat', command=button_register)
+        self.button_register = tk.Button(self.window, text="Registrar", relief='flat',command=button_register)
         self.button_register.configure(background="#A89E9E", width=15, height=5)
         self.button_register.place(x=225, y=300)
 

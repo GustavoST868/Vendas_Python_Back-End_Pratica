@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import interfaceIntial
+import interfaceRegisterProduct
 
 class InterfaceProduct:
     def __init__(self):
@@ -14,6 +15,14 @@ class InterfaceProduct:
         messagebox("Erro","Erro na função de click das imagens!")
 
     def Window(self):
+        try:
+            def button_register_product():
+                self.window.destroy()
+                interface_register_product = interfaceRegisterProduct.InteraceRegisterProduct()
+                interface_register_product.Window()
+        except ValueError:
+            messagebox("Erro","Erro na função de registrar produto!")
+        
         try:
             def button_back():
                 self.window.destroy()
@@ -54,6 +63,10 @@ class InterfaceProduct:
         self.button_back = tk.Button(self.window, text="Voltar", command=button_back)
         self.button_back.configure(background="#A89E9E")
         self.button_back.place(x=10, y=570)
+
+        self.button_register_product = tk.Button(self.window, text="Registrar Produto",command=button_register_product)
+        self.button_register_product.configure(background="#A89E9E")
+        self.button_register_product.place(x=90, y=570)
 
         self.window.title("")
         self.window.geometry("1000x600")

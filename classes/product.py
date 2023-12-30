@@ -25,18 +25,18 @@ class Product:
             ''', (name, price, size, description))
             self.conn.commit()
     except ValueError:
-        messagebox("Erro","Erro na função de inserir produtos!")
+        messagebox.showinfo("Erro","Erro na função de inserir produtos!")
 
     try:
         def get_all_products(self):
             self.cursor.execute('SELECT * FROM products')
             return self.cursor.fetchall()
     except ValueError:
-        messagebox("Erro","Erro na função de obter os produtos do banco!")
+        messagebox.showinfo("Erro","Erro na função de obter os produtos do banco!")
 
     try:
         def check_product_exists(self, name):
             self.cursor.execute('SELECT * FROM products WHERE name = ?', (name,))
             return self.cursor.fetchone() is not None
     except ValueError:
-        messagebox("Erro","Erro na função de verificar se uma produto existe no banco!")
+        messagebox.showinfo("Erro","Erro na função de verificar se uma produto existe no banco!")

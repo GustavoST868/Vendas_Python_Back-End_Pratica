@@ -26,11 +26,11 @@ class Address:
             ''', (country, state, city, street, number, complement))
             self.connection.commit()
     except ValueError:
-        messagebox("Erro","Erro na função de inserir endereço!")
+        messagebox.showinfo("Erro","Erro na função de inserir endereço!")
 
 
     try:
         def close_connection(self):
             self.connection.close()
     except ValueError:
-        messagebox("Erro","Erro na função de fechar a conexão com o banco de endereços!")
+        messagebox.showinfo("Erro","Erro na função de fechar a conexão com o banco de endereços!")
