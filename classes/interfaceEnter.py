@@ -9,22 +9,28 @@ class EnterInterface:
         self.window = tk.Tk()
 
     def Window(self):
-        def button_back():
-            self.window.destroy()
-            initial_interface = interfaceIntial.IntialInterface()
-            initial_interface.Window()
-
-        def button_next():
-            username = entry_user.get()
-            password = entry_password.get()
-            user_ = user.User()
-            
-            if user_.user_exists(username,password):
+        try:
+            def button_back():
                 self.window.destroy()
-                interface_product = intefaceProduct.InterfaceProduct()
-                interface_product.Window()
-            else:
-                messagebox.showinfo("Info", "Usuário não encontrado!")
+                initial_interface = interfaceIntial.IntialInterface()
+                initial_interface.Window()
+        except ValueError:
+            messagebox("Erro","Erro na função do botão voltar da interfaceEnter!")
+
+        try:
+            def button_next():
+                username = entry_user.get()
+                password = entry_password.get()
+                user_ = user.User()
+                
+                if user_.user_exists(username,password):
+                    self.window.destroy()
+                    interface_product = intefaceProduct.InterfaceProduct()
+                    interface_product.Window()
+                else:
+                    messagebox.showinfo("Info", "Usuário não encontrado!")
+        except ValueError:
+            messagebox("Erro","Erro na função do botão próximo!")
 
 
             

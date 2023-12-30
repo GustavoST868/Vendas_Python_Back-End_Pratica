@@ -1,21 +1,29 @@
 import tkinter as tk
 import interfaceRegister 
-import interfaceEnter 
+import interfaceEnter
+from tkinter import messagebox
 
 class IntialInterface:
     def __init__(self):
         self.window = tk.Tk()
 
     def Window(self):
-        def button_register():
-            self.window.destroy()
-            interface_register = interfaceRegister.RegisterInterface()
-            interface_register.Window()
+        try:
+            def button_register():
+                self.window.destroy()
+                interface_register = interfaceRegister.RegisterInterface()
+                interface_register.Window()
+        except ValueError:
+            messagebox("Erro","Erro na função do botão registrar!")
 
-        def button_enter():
-            self.window.destroy()
-            enter_interface = interfaceEnter.EnterInterface()
-            enter_interface.Window()
+
+        try:
+            def button_enter():
+                self.window.destroy()
+                enter_interface = interfaceEnter.EnterInterface()
+                enter_interface.Window()
+        except ValueError:
+            messagebox("Erro","Erro na função do botão entrar!")
 
         self.window.title("")
         self.window.configure(background="#C7BEBE")

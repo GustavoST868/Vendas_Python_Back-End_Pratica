@@ -6,17 +6,27 @@ class InterfaceProduct:
     def __init__(self):
         self.window = tk.Tk()
 
-    def on_image_click(self, image_number):
-        message = f"Imagem {image_number} clicada"
-        messagebox.showinfo("Info", message)
+    try:
+        def on_image_click(self, image_number):
+            message = f"Imagem {image_number} clicada"
+            messagebox.showinfo("Info", message)
+    except ValueError:
+        messagebox("Erro","Erro na função de click das imagens!")
 
     def Window(self):
-        def button_back():
-            self.window.destroy()
-            interface_initial = interfaceIntial.IntialInterface()
-            interface_initial.Window()
+        try:
+            def button_back():
+                self.window.destroy()
+                interface_initial = interfaceIntial.IntialInterface()
+                interface_initial.Window()
+        except ValueError:
+            messagebox("Erro","Erro na função do botão voltar!")
+            
+        try:
+            self.image = tk.PhotoImage(file="D:/Programação/Vendas_Python/images/tshirt.png")
+        except ValueError:
+            messagebox("Erro","Erro ao tentar encontrar a imagem da camisa!")
 
-        self.image = tk.PhotoImage(file="D:/Programação/Vendas_Python/images/tshirt.png")
         y = 20
         j = 0
         image_number = 1

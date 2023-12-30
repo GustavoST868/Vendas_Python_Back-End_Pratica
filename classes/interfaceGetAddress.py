@@ -1,18 +1,22 @@
 import tkinter as tk
 import address
 import intefaceProduct
+from tkinter import messagebox
 
 class GetAddress:
     def __init__(self):
         self.window = tk.Tk()
 
     def Window(self):
-        def button_next():
-            address_ = address.Address()
-            address_.insert_address(self.entry_country.get(),self.entry_state.get(),self.entry_city.get(),self.entry_street.get(),self.entry_number.get(),self.entry_complement.get()) 
-            self.window.destroy()
-            interface_product = intefaceProduct.InterfaceProduct()
-            interface_product.Window()
+        try:
+            def button_next():
+                address_ = address.Address()
+                address_.insert_address(self.entry_country.get(),self.entry_state.get(),self.entry_city.get(),self.entry_street.get(),self.entry_number.get(),self.entry_complement.get()) 
+                self.window.destroy()
+                interface_product = intefaceProduct.InterfaceProduct()
+                interface_product.Window()
+        except ValueError:
+            messagebox("Erro","Erro na função do botão próximo!")
             
             
 

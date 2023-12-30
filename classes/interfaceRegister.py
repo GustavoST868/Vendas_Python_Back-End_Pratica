@@ -2,6 +2,7 @@ import tkinter as tk
 import interfaceIntial as interfaceIntial 
 import interfaceGetAddress as interfaceGetAddress 
 import user 
+from tkinter import messagebox
 
 
 class RegisterInterface:
@@ -9,20 +10,26 @@ class RegisterInterface:
         self.window = tk.Tk()
 
     def Window(self):
-        def button_back():
-            self.window.destroy()
+        try:
+            def button_back():
+                self.window.destroy()
 
-            interface_initial = interfaceIntial.IntialInterface()
-            interface_initial.Window()
+                interface_initial = interfaceIntial.IntialInterface()
+                interface_initial.Window()
+        except ValueError:
+            messagebox("Erro","Erro na função do botão voltar!")
 
-        def button_next():
-            name = self.entry_name.get()
-            password = self.entry_password.get()
-            user_ = user.User()
-            user_.insert_user(name,password,False)
-            self.window.destroy()
-            get_address = interfaceGetAddress.GetAddress()
-            get_address.Window()
+        try:
+            def button_next():
+                name = self.entry_name.get()
+                password = self.entry_password.get()
+                user_ = user.User()
+                user_.insert_user(name,password,False)
+                self.window.destroy()
+                get_address = interfaceGetAddress.GetAddress()
+                get_address.Window()
+        except ValueError:
+            messagebox("Erro","Erro na função do botão próximo!")
 
         self.window.configure(background="#C7BEBE")
         self.window.title("")
